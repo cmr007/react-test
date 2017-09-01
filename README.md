@@ -1,2 +1,2 @@
 # react-test
-rect练习项目
+react练习项目
