@@ -3,7 +3,8 @@ const webpack = require('webpack')
 const path = require('path')
 const APP_PATH = path.resolve(__dirname, '../src/static')
 const pkg = require('../package.json')
-const PUBLIC_PATH = '/static/webapps'
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+const PUBLIC_PATH ="http://127.0.0.1:8080/static/webapps/"
 module.exports = function(options) {
 	options = _.defaults(options || {}, {
 		ENV: 'development'
@@ -44,6 +45,11 @@ module.exports = function(options) {
       extensions: ['.webpack.js', '.js', '.jsx'],
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        chunks: ['main'],
+        template: '../page/index.html',
+        filename: '../page/index.html'
+      }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(options.ENV),

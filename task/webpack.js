@@ -3,7 +3,7 @@ const gulp = require('gulp')
 const webpack = require('webpack-stream')
 const plumber = require('gulp-plumber')
 const config = require('./webpack.config.js')
-
+const connect = require('gulp-connect')
 gulp.task('webpack-dev', function() {
   const pack = webpack(_.defaultsDeep({
     watch: true,
@@ -20,12 +20,9 @@ gulp.task('webpack-dev', function() {
     .pipe(pack)
     .pipe(gulp.dest('./build/static/webapps'))
 })
-
-/*gulp.task('webpack', function() {
-  return gulp.src('../package.json') // whatever sources
-    .pipe(webpack(config({
-      ENV: 'production'
-    })))
-    .pipe(gulp.dest('./build/static/apps'))
-})*/
-
+gulp.task('webserver', function() {
+  connect.server({
+    root: 'build',
+    livereload: true
+  })
+})
