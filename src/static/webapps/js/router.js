@@ -1,45 +1,9 @@
 import React from 'react'
-import { Router, IndexRoute, Route, Redirect } from 'react-router'
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const self = this;
-    console.info("路由")
-    return (
-			<Router>
-        <Route
-          path="/"
-          getComponent={
-            (nextState, callback) => {
-              require.ensure([], function (require) {
-                callback(null, require('./views/home/main').default)
-              }, 'home')
-            }
-          }
-        >
-        </Route>
- 				<Route path="detail" 
- 				 	getComponent={
- 				 		(nextState, callback) => {
-	            require.ensure([], function (require) {
-	              callback(null, require('./views/home/main').default)
-	            },'detail')
-          	}
-        	}
-        >
-        </Route>
-        <Route path="*" getComponent={(nextState, callback) => {
-            require.ensure([], function (require) {
-              callback(null, require('./views/home/main').default)
-            })
-          }}>
-        </Route>
-
-      </Router>)
-  }
-}
-
+import { BrowserRouter as Router, Route, Link, hashHistory } from 'react-router-dom'
+import Home from './views/home/main'
+const App = () => (
+  <Router history={hashHistory}>
+    <Route exact path="/" component={Home}/>
+  </Router>
+)
 export default App

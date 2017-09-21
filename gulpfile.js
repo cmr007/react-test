@@ -7,11 +7,11 @@ require('./task/rev')
 require('./task/minify')
 
 gulp.task('dev', function() {
-	return sequence('clean', 'webserver', 'webpack-dev')
+	return sequence('clean', 'webpack-dev')
 })
 
 /*gulp.task('build', function() {
 	return sequence('clean', 'rev', 'minify')
 })*/
 
-gulp.task('default', ['dev'])
+gulp.task('default', ['dev', 'connect', 'watch']);

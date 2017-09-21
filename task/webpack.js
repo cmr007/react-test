@@ -20,9 +20,18 @@ gulp.task('webpack-dev', function() {
     .pipe(pack)
     .pipe(gulp.dest('./build/static/webapps'))
 })
-gulp.task('webserver', function() {
+gulp.task('connect', function() {
   connect.server({
-    root: 'build',
-    livereload: true
-  })
-})
+    root: ['build/static/page','build/static/webapps'],
+    port: 8080
+  });
+});
+ 
+gulp.task('html', function () {
+  gulp.src('./build/*.html')
+    .pipe(connect.reload());
+});
+ 
+gulp.task('watch', function () {
+  gulp.watch(['./build/*.html'], ['html']);
+});

@@ -5,7 +5,7 @@ class Home extends React.Component {
   }
   render() {
     return (<div className="home">
-      123
+      开心
     </div>)
   }
 }

@@ -4,7 +4,7 @@ const path = require('path')
 const APP_PATH = path.resolve(__dirname, '../src/static')
 const pkg = require('../package.json')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-const PUBLIC_PATH ="http://127.0.0.1:8080/static/webapps/"
+const PUBLIC_PATH ="http://127.0.0.1:8080"
 module.exports = function(options) {
 	options = _.defaults(options || {}, {
 		ENV: 'development'
@@ -20,7 +20,7 @@ module.exports = function(options) {
 		output: {
 			filename: 'entry/[name].js',
 			chunkFilename: 'chunk/[name]-[chunkhash].js',
-			publicPath: publicPath,
+      publicPath: publicPath
 		},
 		module: {
       loaders: [{
