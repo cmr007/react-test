@@ -27,19 +27,28 @@ module.exports = function(options) {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-      }, {
-        test: /\.css$/,
-        loader: "style!css",
-      }, {
+      },
+      { 
+        test: /\.css$/, 
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      {
         test: /\.pcss$/,
         loader: `style!css?module&importLoaders=1!postcss`,
-      }, {
+      },
+      {
         test: /\.html$/,
         loader: "html-loader",
-      }, {
+      },
+      {
         test: /\.(png|jpg|gif|jpeg|otf|eot|svg|ttf|woff|woff2)(\?\S+)?$/,
-        loader: 'file?name=asset/[hash:8].[ext]'
-      }, ]
+        loader: 'file-loader?name=/asset/[hash:8].[ext]'
+      }, 
+      ]
     },
     resolve: {
       extensions: ['.webpack.js', '.js', '.jsx'],
