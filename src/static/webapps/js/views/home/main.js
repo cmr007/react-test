@@ -13,14 +13,18 @@ class Home extends React.Component {
   render() {
   	var settings = {
     	dots: true,
-    	dotsClass: 'slick-dots slick-thumb',
+    	dotsClass: 'gallery',
     	autoplay: true,
     	infinite: true,
     	arrows: false,
       slidesToShow: 1,
       slidesToScroll: 1,
       centerMode: true,
-      speed: 300
+      speed: 300,
+      customPaging: function(i) {
+      	return <a><img src={Pic_05}/></a>
+        
+      },
     }
     return (<div className="home">
       <Slider {...settings}>
