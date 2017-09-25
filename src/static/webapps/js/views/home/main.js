@@ -24,11 +24,52 @@ class Home extends React.Component {
     }
     return (<div className="home">
       <Slider {...settings}>
-          <div><img src={Pic_01}/></div>
-          <div><img src={Pic_02}/></div>
-          <div><img src={Pic_03}/></div>
-          <div><img src={Pic_04}/></div>
-          <div><img src={Pic_05}/></div>
+        <div>
+        	<div className='pic-list'>
+        		<img src={Pic_01}/>
+        		<div>
+        			<div className="detail"><span className="price">￥119.00</span><span className='name'>稻草人手提包</span></div>
+        			<div><i className="iconfont icon-gouwuche"></i></div>
+        		</div>
+        	</div>
+        </div>
+        <div>
+        	<div className='pic-list'>
+        		<img src={Pic_02}/>
+        		<div>
+        			<div><span>￥219.00</span><span>稻草人手提包</span></div>
+        			<div><i className="iconfont icon-gouwuche"></i></div>
+        		</div>        	
+        	</div>
+        </div>
+        <div>
+        	<div className='pic-list'>
+        		<img src={Pic_03}/>
+        		<div>
+        			<div><span>￥319.00</span><span>稻草人手提包</span></div>
+        			<div><i className="iconfont icon-gouwuche"></i></div>
+        		</div>
+        	</div>
+        </div>
+        <div>
+        	<div  className='pic-list'>
+        		<img src={Pic_04}/>
+        		<div>
+        			<div><span>￥419.00</span><span>稻草人手提包</span></div>
+        			<div><i className="iconfont icon-gouwuche"></i></div>
+        		</div>
+        	</div>
+        	
+        </div>
+        <div>
+        	<div className='pic-list'>
+        		<img src={Pic_05}/>
+        		<div>
+        			<div><span>￥519.00</span><span>稻草人手提包</span></div>
+        			<div><i className="iconfont icon-gouwuche"></i></div>
+        		</div>
+        	</div>
+        </div>
       </Slider>
     </div>)
   }
