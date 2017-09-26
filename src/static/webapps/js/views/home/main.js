@@ -5,13 +5,17 @@ import Pic_02 from '../../../image/Home/img-2.jpg'
 import Pic_03 from '../../../image/Home/img-3.jpg'
 import Pic_04 from '../../../image/Home/img-4.jpg'
 import Pic_05 from '../../../image/Home/img-5.jpg'
+import Tumbnail_01 from '../../../image/Home/thumbnail-1.png'
+import Tumbnail_02 from '../../../image/Home/thumbnail-2.png'
+import Tumbnail_03 from '../../../image/Home/thumbnail-3.png'
+import Tumbnail_04 from '../../../image/Home/thumbnail-4.png'
+import Tumbnail_05 from '../../../image/Home/thumbnail-5.png'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 class Home extends React.Component {
   constructor(props) {
     super(props)
     this.handle = this.handle.bind(this)
-    this.state 
   }
   handle() {
   	console.info("哈哈哈")
@@ -79,7 +83,13 @@ class Home extends React.Component {
         	</div>
         </div>
       </Slider>
-      <div id='mask'></div>
+      <div id='thumbnail'>
+    		<div><img src={ Tumbnail_01 }/></div>
+    		<div><img src={ Tumbnail_02 }/></div>
+    		<div><img src={ Tumbnail_03 }/></div>
+    		<div><img src={ Tumbnail_04 }/></div>
+    		<div><img src={ Tumbnail_05 }/></div>
+      </div>
     </div>)
   }
 }
