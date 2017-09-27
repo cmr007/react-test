@@ -15,29 +15,33 @@ import 'slick-carousel/slick/slick.css'
 class Home extends React.Component {
   constructor(props) {
     super(props)
-    this.handle = this.handle.bind(this)
-  }
-  handle() {
-  	console.info("哈哈哈")
-  }
-  render() {
-  	var settings = {
-    	dots: false,
-    	autoplay: false,
-    	infinite: true,
-    	arrows: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      centerMode: true,
-      speed: 300,
-      beforeChange: (next)=>{
-      	console.info(next)
+    this.state = {
+      activeClass: 'active',
+      index: 0,
+      settings: {
+        dots: false,
+        autoplay: true,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        speed: 300,
+        beforeChange: (prev,current)=>{
+          this.setState({
+            index: current
+          })
+        }
       }
     }
+  }
+  handleClick(e,v) {
+    this.refs.slider.slickGoTo(v)
+  }
+  render() {
     return (<div id="home">
-      <Slider {...settings}>
+      <Slider ref='slider' {...this.state.settings}>
         <div>
-        	<div className='pic-list' onClick={this.handle}>
+        	<div className='pic-list'>
         		<img src={Pic_01}/>
         		<div className='sku'>
         			<div className="detail"><span className="price">￥119.00</span><span className='name'>稻草人手提包</span></div>
@@ -84,11 +88,11 @@ class Home extends React.Component {
         </div>
       </Slider>
       <div id='thumbnail'>
-    		<div><img src={ Tumbnail_01 }/></div>
-    		<div><img src={ Tumbnail_02 }/></div>
-    		<div><img src={ Tumbnail_03 }/></div>
-    		<div><img src={ Tumbnail_04 }/></div>
-    		<div><img src={ Tumbnail_05 }/></div>
+    		<div onClick={(ev, arg1) => {this.handleClick(ev, '0')}}><img className={this.state.index == 0 ? this.state.activeClass : ''} src={ Tumbnail_01 }/></div>
+        <div onClick={(ev, arg1) => {this.handleClick(ev, '1')}}><img className={this.state.index == 1 ? this.state.activeClass : ''} src={ Tumbnail_02 }/></div>
+        <div onClick={(ev, arg1) => {this.handleClick(ev, '2')}}><img className={this.state.index == 2 ? this.state.activeClass : ''} src={ Tumbnail_03 }/></div>
+        <div onClick={(ev, arg1) => {this.handleClick(ev, '3')}}><img className={this.state.index == 3 ? this.state.activeClass : ''} src={ Tumbnail_04 }/></div>
+        <div onClick={(ev, arg1) => {this.handleClick(ev, '4')}}><img className={this.state.index == 4 ? this.state.activeClass : ''} src={ Tumbnail_05 }/></div>
       </div>
     </div>)
   }

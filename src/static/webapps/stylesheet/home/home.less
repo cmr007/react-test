@@ -3,8 +3,10 @@
   top: 0;
   bottom: 0;
   width: 100%;
+  min-width: 320px;
+  max-width: 450px;
   padding-top: 4.0rem;
-  background: linear-gradient(to right, #f0f0f0, #8981A5);
+ /* background: linear-gradient(to right, #f0f0f0, #8981A5);*/
   .gallery {
   	text-align: center;
     margin-top: 0.533333rem;
@@ -21,9 +23,10 @@
   	.pic-list {
 			margin: 0.133333rem;
    		border: 0.266667rem solid #fff;
-   		box-shadow: 0.213333rem 0.106667rem 0.106667rem 0 #8981A5;
+   		box-shadow: 0.106667rem 0.106667rem 0.106667rem 0 #ccc;
    		border-radius: 0.133333rem;
 			img {
+				border: none;
 				width: 100%;
 			}
 			.sku {
@@ -60,8 +63,18 @@
 		}
   }
   #thumbnail {
+  	text-align: center;
+    width: 90%;
+    margin: 0.533333rem auto;
   	div {
   		float: left;
+    	width: 20%;
+    	.active {
+    		border: 0.026667rem solid #FF9968;
+    	}
+    	img {
+    		width: 1.333333rem;
+    	}
   	}
   }
 }
